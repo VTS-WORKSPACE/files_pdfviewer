@@ -62,3 +62,4 @@ node_modules
 /vendor
 /build
 composer.phar
+release.zip

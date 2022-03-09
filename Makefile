@@ -8,7 +8,7 @@ appstore_package_name=$(appstore_build_directory)/$(app_name)
 sign_dir=$(appstore_build_directory)/sign
 cert_dir=$(HOME)/.nextcloud/certificates
 
-all: dev-setup lint stylelint cslint build-js-production
+all: dev-setup lint build-js-production release
 
 # Dev env management
 dev-setup: clean clean-dev install-npm-deps-dev install-composer-deps-dev
@@ -82,3 +82,5 @@ appstore:
 	$(project_directory)/lib \
 	$(project_directory)/templates
 
+release:
+	zip -r release.zip . -x "node_modules/*" "tests/*" "vendor/*"
